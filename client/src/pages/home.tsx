@@ -14,8 +14,8 @@ export default function HomePage() {
   
   const navItems = [
     { name: 'Home', url: '#hero', icon: Home },
+    { name: 'How it Works', url: '#how-it-works', icon: Play },
     { name: 'Waitlist', url: '#waitlist', icon: Users },
-    { name: 'Demo', url: '#demo', icon: Play },
     { name: 'Install', url: '#install', icon: Download }
   ]
 
@@ -326,9 +326,9 @@ captcha.verify().then(result => {
         {/* Final CTA */}
         <div id="install" className="w-full max-w-4xl mx-auto text-center px-4 md:px-8 pb-16" data-testid="final-cta">
           <h2 className="display-font text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-            Ready to <GradientText className="inline" colors={["#4B0FFF", "#7A2CFF", "#2AB3FF"]}>rizz up</GradientText> your login page?
+            Experience the future of <GradientText className="inline" colors={["#4B0FFF", "#7A2CFF", "#2AB3FF"]}>security</GradientText>
           </h2>
-          <p className="text-lg text-muted-foreground mb-8">Join the next-gen, human-first security layer.</p>
+          <p className="text-lg text-muted-foreground mb-8">AI-powered CAPTCHA that understands human culture.</p>
           
           <a href="/login">
             <Button 
