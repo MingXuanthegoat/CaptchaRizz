@@ -61,31 +61,31 @@ captcha.verify().then(result => {
         </div>
         
         {/* Navigation */}
-        <div className="fixed top-6 left-6 z-50">
+        <div className="fixed top-3 left-3 md:top-6 md:left-6 z-50">
           <button 
             onClick={() => {
               document.getElementById('hero')?.scrollIntoView({ behavior: 'smooth' })
             }}
-            className="flex items-center gap-3 cursor-pointer bg-white/10 backdrop-blur-sm rounded-xl p-2 hover:bg-white/20 transition-all duration-200"
+            className="flex items-center gap-2 cursor-pointer bg-white/10 backdrop-blur-sm rounded-xl p-2 hover:bg-white/20 transition-all duration-200 touch-manipulation"
           >
             <img 
               src="/attached_assets/CAPTCHARIZZ_1757079876773.png" 
               alt="CaptchaRizz" 
-              className="w-10 h-10 hover:scale-105 transition-transform duration-200"
+              className="w-8 h-8 md:w-10 md:h-10 hover:scale-105 transition-transform duration-200"
             />
           </button>
         </div>
         <NavBar items={navItems} />
 
         {/* Hero Content */}
-        <main className="relative min-h-screen flex flex-col items-center justify-center px-4 md:px-8 pt-24 pb-16">
+        <main className="relative min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 md:px-8 pt-20 sm:pt-24 pb-12 sm:pb-16">
           {/* Hero Title */}
-          <div className="text-center max-w-6xl mx-auto mb-8" data-testid="hero-title">
-            <h1 className="display-font text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-6 leading-tight">
+          <div className="text-center max-w-6xl mx-auto mb-6 sm:mb-8" data-testid="hero-title">
+            <h1 className="display-font text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-4 sm:mb-6 leading-tight">
               <GradientText
                 colors={["#4B0FFF", "#7A2CFF", "#2AB3FF", "#4B0FFF"]}
                 animationSpeed={6}
-                className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-2"
+                className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-2"
               >
                 Humans only.
               </GradientText>
@@ -94,17 +94,17 @@ captcha.verify().then(result => {
               </div>
             </h1>
             
-            <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-body">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-body px-2">
               CaptchaRizz is an AI-powered vibe check that replaces clunky CAPTCHAs with culture-savvy prompts. Fast, fun, and hard to spoof.
             </p>
           </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 mb-16" data-testid="hero-cta">
-            <a href="/login">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-12 sm:mb-16 w-full max-w-md sm:max-w-none px-4 sm:px-0" data-testid="hero-cta">
+            <a href="/login" className="w-full sm:w-auto">
               <Button 
                 size="lg" 
-                className="group relative overflow-hidden bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
+                className="w-full sm:w-auto group relative overflow-hidden bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold text-base sm:text-lg transition-all duration-300 transform hover:scale-105 shadow-lg touch-manipulation"
                 data-testid="button-try-demo"
               >
                 <span className="relative z-10 tracking-wide">Try the demo</span>
@@ -114,7 +114,7 @@ captcha.verify().then(result => {
             <Button 
               variant="outline" 
               size="lg"
-              className="glass-card hover:bg-white/5 text-foreground px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 border border-white/10 hover:border-primary/30"
+              className="w-full sm:w-auto glass-card hover:bg-white/5 text-foreground px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold text-base sm:text-lg transition-all duration-300 transform hover:scale-105 border border-white/10 hover:border-primary/30 touch-manipulation"
               data-testid="button-install"
             >
               <span className="tracking-wide">Install on your site</span>
@@ -126,7 +126,7 @@ captcha.verify().then(result => {
       {/* Content Sections with Black Background */}
       <div className="bg-black">
         {/* How It Works Section */}
-        <div id="demo" className="relative w-full max-w-6xl mx-auto py-16 px-4 md:px-8" data-testid="how-it-works">
+        <div id="how-it-works" className="relative w-full max-w-6xl mx-auto py-12 sm:py-16 px-4 sm:px-6 md:px-8" data-testid="how-it-works">
           <Waves 
             lineColor="rgba(75, 15, 255, 0.15)"
             backgroundColor="black"
@@ -141,14 +141,14 @@ captcha.verify().then(result => {
             yGap={35}
             className="animate-wave-pulse"
           />
-          <div className="relative z-10 text-center mb-12">
-            <h2 className="display-font text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4">How it works</h2>
+          <div className="relative z-10 text-center mb-8 sm:mb-12">
+            <h2 className="display-font text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4">How it works</h2>
           </div>
           
-          <div className="relative z-10 grid md:grid-cols-3 gap-8 mb-16">
+          <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
             {/* Step 1 */}
             <Card className="glass-card group hover:bg-white/5 transition-all duration-300 transform hover:scale-105" data-testid="step-1">
-              <CardContent className="p-8">
+              <CardContent className="p-6 sm:p-8">
                 <div className="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-xl mb-6 flex items-center justify-center">
                   <span className="text-2xl font-bold text-white">1</span>
                 </div>
@@ -159,7 +159,7 @@ captcha.verify().then(result => {
 
             {/* Step 2 */}
             <Card className="glass-card group hover:bg-white/5 transition-all duration-300 transform hover:scale-105" data-testid="step-2">
-              <CardContent className="p-8">
+              <CardContent className="p-6 sm:p-8">
                 <div className="w-12 h-12 bg-gradient-to-br from-accent to-primary rounded-xl mb-6 flex items-center justify-center">
                   <span className="text-2xl font-bold text-white">2</span>
                 </div>
@@ -170,7 +170,7 @@ captcha.verify().then(result => {
 
             {/* Step 3 */}
             <Card className="glass-card group hover:bg-white/5 transition-all duration-300 transform hover:scale-105" data-testid="step-3">
-              <CardContent className="p-8">
+              <CardContent className="p-6 sm:p-8">
                 <div className="w-12 h-12 bg-gradient-to-br from-primary via-accent to-primary rounded-xl mb-6 flex items-center justify-center">
                   <span className="text-2xl font-bold text-white">3</span>
                 </div>
@@ -182,12 +182,12 @@ captcha.verify().then(result => {
         </div>
 
         {/* Waitlist Section */}
-        <section id="waitlist" className="py-16">
+        <section id="waitlist" className="py-12 sm:py-16 px-4 sm:px-0">
           <WaitlistDemo />
         </section>
 
         {/* Team Section */}
-        <div className="relative w-full max-w-6xl mx-auto mb-16 px-4 md:px-8" data-testid="team">
+        <div className="relative w-full max-w-6xl mx-auto mb-12 sm:mb-16 px-4 sm:px-6 md:px-8" data-testid="team">
           <Waves 
             lineColor="rgba(42, 179, 255, 0.12)"
             backgroundColor="black"
@@ -202,12 +202,12 @@ captcha.verify().then(result => {
             yGap={40}
             className="animate-wave-pulse"
           />
-          <div className="relative z-10 text-center mb-12">
-            <h2 className="display-font text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4">Meet the Team</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">The humans behind the human verification</p>
+          <div className="relative z-10 text-center mb-8 sm:mb-12">
+            <h2 className="display-font text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4">Meet the Team</h2>
+            <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto px-2">The humans behind the human verification</p>
           </div>
           
-          <div className="relative z-10 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             <Card className="glass-card group hover:bg-white/5 transition-all duration-300 transform hover:scale-105" data-testid="team-euan">
               <CardContent className="p-6 text-center">
                 <div className="w-20 h-20 bg-gradient-to-br from-primary to-accent rounded-full mb-4 mx-auto flex items-center justify-center overflow-hidden">
@@ -255,10 +255,10 @@ captcha.verify().then(result => {
         </div>
 
         {/* Why CaptchaRizz Section */}
-        <div className="w-full max-w-4xl mx-auto text-center mb-16 px-4 md:px-8" data-testid="why-captcharizz">
-          <h2 className="display-font text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-8">Why CaptchaRizz?</h2>
+        <div className="w-full max-w-4xl mx-auto text-center mb-12 sm:mb-16 px-4 sm:px-6 md:px-8" data-testid="why-captcharizz">
+          <h2 className="display-font text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-6 sm:mb-8">Why CaptchaRizz?</h2>
           
-          <div className="space-y-6 text-lg md:text-xl text-muted-foreground">
+          <div className="space-y-4 sm:space-y-6 text-base sm:text-lg md:text-xl text-muted-foreground px-2">
             <p>Because traffic-light CAPTCHAs are so 2005.</p>
             <p>Bots don't know Gen Z slang. <GradientText className="inline font-semibold" colors={["#4B0FFF", "#7A2CFF", "#2AB3FF"]}>That's the firewall.</GradientText></p>
             <p>Smarter than CAPTCHA, funnier than 2FA.</p>
@@ -267,28 +267,28 @@ captcha.verify().then(result => {
         </div>
 
         {/* Installation Code Section */}
-        <div className="w-full max-w-4xl mx-auto mb-16 px-4 md:px-8" data-testid="installation-code">
-          <div className="text-center mb-8">
-            <h2 className="display-font text-2xl md:text-3xl font-bold text-foreground mb-4">Get started in seconds</h2>
-            <p className="text-muted-foreground">Copy the code below to integrate CaptchaRizz into your project</p>
+        <div className="w-full max-w-4xl mx-auto mb-12 sm:mb-16 px-4 sm:px-6 md:px-8" data-testid="installation-code">
+          <div className="text-center mb-6 sm:mb-8">
+            <h2 className="display-font text-xl sm:text-2xl md:text-3xl font-bold text-foreground mb-4">Get started in seconds</h2>
+            <p className="text-sm sm:text-base text-muted-foreground px-2">Copy the code below to integrate CaptchaRizz into your project</p>
           </div>
           
           <div className="flex justify-center">
             <div className="w-full max-w-2xl">
               <CodeBlock>
-                <CodeBlockGroup className="border-border border-b px-4 py-2">
+                <CodeBlockGroup className="border-border border-b px-3 sm:px-4 py-2">
                   <div className="flex items-center gap-2">
                     <div className="bg-primary/10 text-primary rounded px-2 py-1 text-xs font-medium">
                       JavaScript
                     </div>
-                    <span className="text-muted-foreground text-sm">
+                    <span className="text-muted-foreground text-xs sm:text-sm">
                       Installation & Setup
                     </span>
                   </div>
                   <Button
                     variant="ghost"
                     size="icon"
-                    className="h-8 w-8"
+                    className="h-8 w-8 touch-manipulation"
                     onClick={handleCopy}
                     data-testid="button-copy-code"
                   >
@@ -306,21 +306,21 @@ captcha.verify().then(result => {
         </div>
 
         {/* Social Proof Section */}
-        <div className="w-full max-w-4xl mx-auto mb-16 px-4 md:px-8" data-testid="social-proof">
-          <div className="text-center mb-8">
-            <h2 className="display-font text-2xl md:text-3xl font-bold text-foreground mb-4">What people are saying</h2>
+        <div className="w-full max-w-4xl mx-auto mb-12 sm:mb-16 px-4 sm:px-6 md:px-8" data-testid="social-proof">
+          <div className="text-center mb-6 sm:mb-8">
+            <h2 className="display-font text-xl sm:text-2xl md:text-3xl font-bold text-foreground mb-4">What people are saying</h2>
           </div>
           
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
             <Card className="glass-card" data-testid="testimonial-1">
-              <CardContent className="p-6">
+              <CardContent className="p-5 sm:p-6">
                 <p className="text-foreground/90 mb-4">"First time I wanted to take a CAPTCHA."</p>
                 <p className="text-sm text-muted-foreground">@realuserlol</p>
               </CardContent>
             </Card>
             
             <Card className="glass-card" data-testid="testimonial-2">
-              <CardContent className="p-6">
+              <CardContent className="p-5 sm:p-6">
                 <p className="text-foreground/90 mb-4">"Failed the first rizz check... humbling."</p>
                 <p className="text-sm text-muted-foreground">@techbro</p>
               </CardContent>
@@ -329,16 +329,16 @@ captcha.verify().then(result => {
         </div>
 
         {/* Final CTA */}
-        <div id="install" className="w-full max-w-4xl mx-auto text-center px-4 md:px-8 pb-16" data-testid="final-cta">
-          <h2 className="display-font text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+        <div id="install" className="w-full max-w-4xl mx-auto text-center px-4 sm:px-6 md:px-8 pb-12 sm:pb-16" data-testid="final-cta">
+          <h2 className="display-font text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
             Experience the future of <GradientText className="inline" colors={["#4B0FFF", "#7A2CFF", "#2AB3FF"]}>security</GradientText>
           </h2>
-          <p className="text-lg text-muted-foreground mb-8">AI-powered CAPTCHA that understands human culture.</p>
+          <p className="text-base sm:text-lg text-muted-foreground mb-6 sm:mb-8 px-2">AI-powered CAPTCHA that understands human culture.</p>
           
           <a href="/login">
             <Button 
               size="lg"
-              className="group relative overflow-hidden bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary text-white px-12 py-4 rounded-xl font-semibold text-xl transition-all duration-300 transform hover:scale-105 shadow-2xl"
+              className="group relative overflow-hidden bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary text-white px-8 sm:px-12 py-3 sm:py-4 rounded-xl font-semibold text-lg sm:text-xl transition-all duration-300 transform hover:scale-105 shadow-2xl touch-manipulation"
               data-testid="button-get-started"
             >
               <span className="relative z-10 tracking-wide">Get Started</span>
@@ -348,16 +348,18 @@ captcha.verify().then(result => {
       </div>
 
       {/* Footer */}
-      <footer className="w-full py-8 px-4 border-t border-white/10 bg-black" data-testid="footer">
+      <footer className="w-full py-6 sm:py-8 px-4 border-t border-white/10 bg-black" data-testid="footer">
         <div className="max-w-6xl mx-auto text-center">
-          <p className="text-muted-foreground text-sm">
-            © 2025 CaptchaRizz | 
-            <a href="https://www.instagram.com/captcharizz/" className="hover:text-primary transition-colors ml-1" data-testid="link-instagram">Instagram</a> | 
-            <a href="https://www.tiktok.com/@captcharizz?lang=en" className="hover:text-primary transition-colors ml-1" data-testid="link-tiktok">TikTok</a> | 
-            <a href="https://www.linkedin.com/company/captcharizz/?viewAsMember=true" className="hover:text-primary transition-colors ml-1" data-testid="link-linkedin">LinkedIn</a> | 
-            <a href="#" className="hover:text-primary transition-colors ml-1" data-testid="link-contact">Contact</a> | 
-            <a href="#" className="hover:text-primary transition-colors ml-1" data-testid="link-privacy">Privacy</a> | 
-            <a href="#" className="hover:text-primary transition-colors ml-1" data-testid="link-terms">Terms</a>
+          <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed">
+            © 2025 CaptchaRizz<br className="sm:hidden" />
+            <span className="hidden sm:inline"> | </span>
+            <a href="https://www.instagram.com/captcharizz/" className="hover:text-primary transition-colors ml-1 touch-manipulation" data-testid="link-instagram">Instagram</a> | 
+            <a href="https://www.tiktok.com/@captcharizz?lang=en" className="hover:text-primary transition-colors ml-1 touch-manipulation" data-testid="link-tiktok">TikTok</a> | 
+            <a href="https://www.linkedin.com/company/captcharizz/?viewAsMember=true" className="hover:text-primary transition-colors ml-1 touch-manipulation" data-testid="link-linkedin">LinkedIn</a><br className="sm:hidden" />
+            <span className="hidden sm:inline"> | </span>
+            <a href="#" className="hover:text-primary transition-colors ml-1 touch-manipulation" data-testid="link-contact">Contact</a> | 
+            <a href="#" className="hover:text-primary transition-colors ml-1 touch-manipulation" data-testid="link-privacy">Privacy</a> | 
+            <a href="#" className="hover:text-primary transition-colors ml-1 touch-manipulation" data-testid="link-terms">Terms</a>
           </p>
         </div>
       </footer>
