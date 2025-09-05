@@ -1,4 +1,4 @@
-import { Home, Sparkles, Play, Download } from 'lucide-react'
+import { Home, Users, Play, Download } from 'lucide-react'
 import { NavBar } from "@/components/ui/tubelight-navbar"
 import { GradientText } from "@/components/ui/gradient-text"
 import { Button } from "@/components/ui/button"
@@ -8,7 +8,7 @@ import { Waves } from "@/components/ui/waves-background"
 export default function HomePage() {
   const navItems = [
     { name: 'Home', url: '#', icon: Home },
-    { name: 'Features', url: '#features', icon: Sparkles },
+    { name: 'Team', url: '#team', icon: Users },
     { name: 'Demo', url: '#demo', icon: Play },
     { name: 'Install', url: '#install', icon: Download }
   ]
@@ -133,8 +133,8 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Features Section */}
-        <div className="relative w-full max-w-6xl mx-auto mb-16 px-4 md:px-8" data-testid="features">
+        {/* Team Section */}
+        <div className="relative w-full max-w-6xl mx-auto mb-16 px-4 md:px-8" data-testid="team">
           <Waves 
             lineColor="rgba(42, 179, 255, 0.12)"
             backgroundColor="black"
@@ -150,47 +150,52 @@ export default function HomePage() {
             className="animate-wave-pulse"
           />
           <div className="relative z-10 text-center mb-12">
-            <h2 className="display-font text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4">Features</h2>
+            <h2 className="display-font text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4">Meet the Team</h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">The humans behind the human verification</p>
           </div>
           
           <div className="relative z-10 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <Card className="glass-card group hover:bg-white/5 transition-all duration-300" data-testid="feature-ai">
-              <CardContent className="p-6">
-                <div className="w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-lg mb-4 flex items-center justify-center">
-                  <span className="text-white text-lg">🧠</span>
+            <Card className="glass-card group hover:bg-white/5 transition-all duration-300 transform hover:scale-105" data-testid="team-euan">
+              <CardContent className="p-6 text-center">
+                <div className="w-20 h-20 bg-gradient-to-br from-primary to-accent rounded-full mb-4 mx-auto flex items-center justify-center">
+                  <span className="text-white text-2xl font-bold">EF</span>
                 </div>
-                <h3 className="font-semibold text-foreground mb-2">AI-Powered Filters</h3>
-                <p className="text-sm text-muted-foreground">Knows what bots can't fake.</p>
+                <h3 className="font-semibold text-foreground mb-2">Euan Fraser</h3>
+                <p className="text-sm text-muted-foreground mb-2">Frontend & Integration</p>
+                <p className="text-xs text-muted-foreground/80">Building seamless user experiences and connecting all the pieces</p>
               </CardContent>
             </Card>
 
-            <Card className="glass-card group hover:bg-white/5 transition-all duration-300" data-testid="feature-custom">
-              <CardContent className="p-6">
-                <div className="w-10 h-10 bg-gradient-to-br from-accent to-primary rounded-lg mb-4 flex items-center justify-center">
-                  <span className="text-white text-lg">✨</span>
+            <Card className="glass-card group hover:bg-white/5 transition-all duration-300 transform hover:scale-105" data-testid="team-ming">
+              <CardContent className="p-6 text-center">
+                <div className="w-20 h-20 bg-gradient-to-br from-accent to-primary rounded-full mb-4 mx-auto flex items-center justify-center">
+                  <span className="text-white text-2xl font-bold">MC</span>
                 </div>
-                <h3 className="font-semibold text-foreground mb-2">Custom Vibe Checks</h3>
-                <p className="text-sm text-muted-foreground">Choose memes, slang, emoji math, or micro-gestures.</p>
+                <h3 className="font-semibold text-foreground mb-2">Ming Xuan Chong</h3>
+                <p className="text-sm text-muted-foreground mb-2">Backend & Database</p>
+                <p className="text-xs text-muted-foreground/80">Architecting robust systems and data infrastructure</p>
               </CardContent>
             </Card>
 
-            <Card className="glass-card group hover:bg-white/5 transition-all duration-300" data-testid="feature-ux">
-              <CardContent className="p-6">
-                <div className="w-10 h-10 bg-gradient-to-br from-primary via-accent to-primary rounded-lg mb-4 flex items-center justify-center">
-                  <span className="text-white text-lg">⚡</span>
+            <Card className="glass-card group hover:bg-white/5 transition-all duration-300 transform hover:scale-105" data-testid="team-mo">
+              <CardContent className="p-6 text-center">
+                <div className="w-20 h-20 bg-gradient-to-br from-primary via-accent to-primary rounded-full mb-4 mx-auto flex items-center justify-center">
+                  <span className="text-white text-2xl font-bold">MA</span>
                 </div>
-                <h3 className="font-semibold text-foreground mb-2">Zero-Friction UX</h3>
-                <p className="text-sm text-muted-foreground">One tap, sub-2s median time, accessibility-safe mode.</p>
+                <h3 className="font-semibold text-foreground mb-2">Mo Alizadeh</h3>
+                <p className="text-sm text-muted-foreground mb-2">Marketing & UI</p>
+                <p className="text-xs text-muted-foreground/80">Crafting compelling experiences and spreading the word</p>
               </CardContent>
             </Card>
 
-            <Card className="glass-card group hover:bg-white/5 transition-all duration-300" data-testid="feature-plugin">
-              <CardContent className="p-6">
-                <div className="w-10 h-10 bg-gradient-to-br from-accent to-primary rounded-lg mb-4 flex items-center justify-center">
-                  <span className="text-white text-lg">🔌</span>
+            <Card className="glass-card group hover:bg-white/5 transition-all duration-300 transform hover:scale-105" data-testid="team-keith">
+              <CardContent className="p-6 text-center">
+                <div className="w-20 h-20 bg-gradient-to-br from-accent to-primary rounded-full mb-4 mx-auto flex items-center justify-center">
+                  <span className="text-white text-2xl font-bold">KA</span>
                 </div>
-                <h3 className="font-semibold text-foreground mb-2">Plugs in Anywhere</h3>
-                <p className="text-sm text-muted-foreground">Drop-in widget for websites, apps, and games (REST + JS SDK).</p>
+                <h3 className="font-semibold text-foreground mb-2">Keith Arputham</h3>
+                <p className="text-sm text-muted-foreground mb-2">Backend Developer</p>
+                <p className="text-xs text-muted-foreground/80">Building powerful server-side logic and APIs</p>
               </CardContent>
             </Card>
           </div>
