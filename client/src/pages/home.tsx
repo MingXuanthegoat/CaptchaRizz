@@ -62,13 +62,18 @@ captcha.verify().then(result => {
         
         {/* Navigation */}
         <div className="fixed top-6 left-6 z-50">
-          <Link href="/" className="flex items-center gap-3">
+          <button 
+            onClick={() => {
+              document.getElementById('hero')?.scrollIntoView({ behavior: 'smooth' })
+            }}
+            className="flex items-center gap-3 cursor-pointer"
+          >
             <img 
-              src="/attached_assets/captcha favicon:solo_1757076458364.jpg" 
+              src="/attached_assets/CAPTCHARIZZ_1757077649835.png" 
               alt="CaptchaRizz" 
               className="w-12 h-12 rounded-lg shadow-lg hover:scale-105 transition-transform duration-200"
             />
-          </Link>
+          </button>
         </div>
         <NavBar items={navItems} />
 
