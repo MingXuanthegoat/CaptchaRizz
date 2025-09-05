@@ -110,19 +110,6 @@ export default function LoginPage() {
       {/* Login Card */}
       <Card className="relative z-10 glass-card w-full max-w-md" data-testid="login-card">
         <CardHeader className="text-center pb-4">
-          <Link href="/" className="mb-4 block">
-            <img 
-              src="/attached_assets/captcha favicon:solo_1757075508946.jpg" 
-              alt="CaptchaRizz" 
-              className="w-16 h-16 mx-auto mb-2 rounded-xl"
-            />
-            <GradientText
-              colors={["#4B0FFF", "#7A2CFF", "#2AB3FF"]}
-              className="text-2xl font-bold"
-            >
-              CaptchaRizz
-            </GradientText>
-          </Link>
           <h1 className="text-2xl font-bold text-foreground mb-2">{isSignup ? 'Create Account' : 'Welcome back'}</h1>
           <p className="text-muted-foreground">{isSignup ? 'Join the human-first security revolution' : 'Sign in to your account to continue'}</p>
         </CardHeader>

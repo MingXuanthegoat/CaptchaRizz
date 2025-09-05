@@ -63,16 +63,10 @@ captcha.verify().then(result => {
         <div className="fixed top-6 left-6 z-50">
           <Link href="/" className="flex items-center gap-3">
             <img 
-              src="/attached_assets/captcha favicon:solo_1757075508946.jpg" 
+              src="/attached_assets/captcha favicon:solo_1757076458364.jpg" 
               alt="CaptchaRizz" 
-              className="w-12 h-12 rounded-lg shadow-lg"
+              className="w-12 h-12 rounded-lg shadow-lg hover:scale-105 transition-transform duration-200"
             />
-            <GradientText
-              colors={["#4B0FFF", "#7A2CFF", "#2AB3FF"]}
-              className="text-xl font-bold hidden sm:block"
-            >
-              CaptchaRizz
-            </GradientText>
           </Link>
         </div>
         <NavBar items={navItems} />
