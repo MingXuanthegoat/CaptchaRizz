@@ -1,4 +1,5 @@
 import { Home, Users, Play, Download, Copy, Check } from 'lucide-react'
+import { Link } from 'wouter'
 import { NavBar } from "@/components/ui/tubelight-navbar"
 import { GradientText } from "@/components/ui/gradient-text"
 import { Button } from "@/components/ui/button"
@@ -59,6 +60,21 @@ captcha.verify().then(result => {
         </div>
         
         {/* Navigation */}
+        <div className="fixed top-6 left-6 z-50">
+          <Link href="/" className="flex items-center gap-3">
+            <img 
+              src="/attached_assets/captcha favicon:solo_1757075508946.jpg" 
+              alt="CaptchaRizz" 
+              className="w-12 h-12 rounded-lg shadow-lg"
+            />
+            <GradientText
+              colors={["#4B0FFF", "#7A2CFF", "#2AB3FF"]}
+              className="text-xl font-bold hidden sm:block"
+            >
+              CaptchaRizz
+            </GradientText>
+          </Link>
+        </div>
         <NavBar items={navItems} />
 
         {/* Hero Content */}
