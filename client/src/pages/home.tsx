@@ -46,7 +46,7 @@ captcha.verify().then(result => {
   }
 
   return (
-    <div className="min-h-screen overflow-x-hidden">
+    <div className="min-h-screen w-full overflow-x-hidden">
       {/* Hero Section with Gradient Background */}
       <div id="hero" className="min-h-screen bg-gradient-to-br from-ink via-[#1a1a3a] to-ink relative">
         {/* Neural Network Background for Hero only */}
