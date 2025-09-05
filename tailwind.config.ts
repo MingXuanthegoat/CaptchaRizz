@@ -104,7 +104,11 @@ export default {
         float: {
           "0%, 100%": { transform: "translateY(0px)" },
           "50%": { transform: "translateY(-10px)" },
-        }
+        },
+        'wave-pulse': {
+          '0%, 100%': { opacity: '0.4' },
+          '50%': { opacity: '0.7' },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -112,6 +116,7 @@ export default {
         gradient: "gradient var(--animation-duration, 8s) linear infinite",
         glow: "glow 2s ease-in-out infinite",
         float: "float 6s ease-in-out infinite",
+        'wave-pulse': 'wave-pulse 4s ease-in-out infinite',
       },
     },
   },

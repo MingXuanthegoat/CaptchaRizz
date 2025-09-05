@@ -3,6 +3,7 @@ import { NavBar } from "@/components/ui/tubelight-navbar"
 import { GradientText } from "@/components/ui/gradient-text"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
+import { Waves } from "@/components/ui/waves-background"
 
 export default function HomePage() {
   const navItems = [
@@ -77,12 +78,26 @@ export default function HomePage() {
       {/* Content Sections with Black Background */}
       <div className="bg-black">
         {/* How It Works Section */}
-        <div className="w-full max-w-6xl mx-auto py-16 px-4 md:px-8" data-testid="how-it-works">
-          <div className="text-center mb-12">
+        <div className="relative w-full max-w-6xl mx-auto py-16 px-4 md:px-8" data-testid="how-it-works">
+          <Waves 
+            lineColor="rgba(75, 15, 255, 0.15)"
+            backgroundColor="black"
+            waveSpeedX={0.01}
+            waveSpeedY={0.008}
+            waveAmpX={25}
+            waveAmpY={15}
+            friction={0.92}
+            tension={0.008}
+            maxCursorMove={80}
+            xGap={15}
+            yGap={35}
+            className="animate-wave-pulse"
+          />
+          <div className="relative z-10 text-center mb-12">
             <h2 className="display-font text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4">How it works</h2>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-8 mb-16">
+          <div className="relative z-10 grid md:grid-cols-3 gap-8 mb-16">
             {/* Step 1 */}
             <Card className="glass-card group hover:bg-white/5 transition-all duration-300 transform hover:scale-105" data-testid="step-1">
               <CardContent className="p-8">
@@ -119,12 +134,26 @@ export default function HomePage() {
         </div>
 
         {/* Features Section */}
-        <div className="w-full max-w-6xl mx-auto mb-16 px-4 md:px-8" data-testid="features">
-          <div className="text-center mb-12">
+        <div className="relative w-full max-w-6xl mx-auto mb-16 px-4 md:px-8" data-testid="features">
+          <Waves 
+            lineColor="rgba(42, 179, 255, 0.12)"
+            backgroundColor="black"
+            waveSpeedX={0.008}
+            waveSpeedY={0.012}
+            waveAmpX={30}
+            waveAmpY={20}
+            friction={0.88}
+            tension={0.012}
+            maxCursorMove={120}
+            xGap={12}
+            yGap={40}
+            className="animate-wave-pulse"
+          />
+          <div className="relative z-10 text-center mb-12">
             <h2 className="display-font text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4">Features</h2>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="relative z-10 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <Card className="glass-card group hover:bg-white/5 transition-all duration-300" data-testid="feature-ai">
               <CardContent className="p-6">
                 <div className="w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-lg mb-4 flex items-center justify-center">
