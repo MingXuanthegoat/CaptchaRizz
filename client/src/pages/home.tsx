@@ -1,17 +1,47 @@
-import { Home, Users, Play, Download } from 'lucide-react'
+import { Home, Users, Play, Download, Copy, Check } from 'lucide-react'
 import { NavBar } from "@/components/ui/tubelight-navbar"
 import { GradientText } from "@/components/ui/gradient-text"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Waves } from "@/components/ui/waves-background"
+import { CodeBlock, CodeBlockCode, CodeBlockGroup } from "@/components/ui/code-block"
+import { useState } from 'react'
 
 export default function HomePage() {
+  const [copied, setCopied] = useState(false)
+  
   const navItems = [
     { name: 'Home', url: '#hero', icon: Home },
     { name: 'Team', url: '#team', icon: Users },
     { name: 'Demo', url: '#demo', icon: Play },
     { name: 'Install', url: '#install', icon: Download }
   ]
+
+  const installCode = `npm install captcha-rizz
+
+// Initialize CaptchaRizz
+import { CaptchaRizz } from 'captcha-rizz';
+
+const captcha = new CaptchaRizz({
+  apiKey: 'your-api-key',
+  theme: 'dark',
+  difficulty: 'medium'
+});
+
+// Verify user
+captcha.verify().then(result => {
+  if (result.success) {
+    console.log('Human verified! 🎉');
+  } else {
+    console.log('Bot detected! 🤖');
+  }
+});`
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(installCode)
+    setCopied(true)
+    setTimeout(() => setCopied(false), 2000)
+  }
 
   return (
     <div className="min-h-screen overflow-x-hidden">
@@ -159,12 +189,8 @@ export default function HomePage() {
           <div className="relative z-10 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <Card className="glass-card group hover:bg-white/5 transition-all duration-300 transform hover:scale-105" data-testid="team-euan">
               <CardContent className="p-6 text-center">
-                <div className="w-20 h-20 bg-gradient-to-br from-primary to-accent rounded-full mb-4 mx-auto overflow-hidden">
-                  <img 
-                    src="/attached_assets/Euan Fraser_1757074009622.jpeg" 
-                    alt="Euan Fraser" 
-                    className="w-full h-full object-cover"
-                  />
+                <div className="w-20 h-20 bg-gradient-to-br from-primary to-accent rounded-full mb-4 mx-auto flex items-center justify-center overflow-hidden">
+                  <span className="text-white text-2xl font-bold">EF</span>
                 </div>
                 <h3 className="font-semibold text-foreground mb-2">Euan Fraser</h3>
                 <p className="text-sm text-muted-foreground mb-2">Frontend & Integration</p>
@@ -174,12 +200,8 @@ export default function HomePage() {
 
             <Card className="glass-card group hover:bg-white/5 transition-all duration-300 transform hover:scale-105" data-testid="team-ming">
               <CardContent className="p-6 text-center">
-                <div className="w-20 h-20 bg-gradient-to-br from-accent to-primary rounded-full mb-4 mx-auto overflow-hidden">
-                  <img 
-                    src="/attached_assets/Ming Xuan Chong_1757074074202.jpeg" 
-                    alt="Ming Xuan Chong" 
-                    className="w-full h-full object-cover"
-                  />
+                <div className="w-20 h-20 bg-gradient-to-br from-accent to-primary rounded-full mb-4 mx-auto flex items-center justify-center overflow-hidden">
+                  <span className="text-white text-2xl font-bold">MC</span>
                 </div>
                 <h3 className="font-semibold text-foreground mb-2">Ming Xuan Chong</h3>
                 <p className="text-sm text-muted-foreground mb-2">Backend & Database</p>
@@ -189,12 +211,8 @@ export default function HomePage() {
 
             <Card className="glass-card group hover:bg-white/5 transition-all duration-300 transform hover:scale-105" data-testid="team-mo">
               <CardContent className="p-6 text-center">
-                <div className="w-20 h-20 bg-gradient-to-br from-primary via-accent to-primary rounded-full mb-4 mx-auto overflow-hidden">
-                  <img 
-                    src="/attached_assets/IMG_0897_1757074182490.jpeg" 
-                    alt="Mo Alizadeh" 
-                    className="w-full h-full object-cover"
-                  />
+                <div className="w-20 h-20 bg-gradient-to-br from-primary via-accent to-primary rounded-full mb-4 mx-auto flex items-center justify-center overflow-hidden">
+                  <span className="text-white text-2xl font-bold">MA</span>
                 </div>
                 <h3 className="font-semibold text-foreground mb-2">Mo Alizadeh</h3>
                 <p className="text-sm text-muted-foreground mb-2">Marketing & UI</p>
@@ -204,12 +222,8 @@ export default function HomePage() {
 
             <Card className="glass-card group hover:bg-white/5 transition-all duration-300 transform hover:scale-105" data-testid="team-keith">
               <CardContent className="p-6 text-center">
-                <div className="w-20 h-20 bg-gradient-to-br from-accent to-primary rounded-full mb-4 mx-auto overflow-hidden">
-                  <img 
-                    src="/attached_assets/IMG_3284_1757074285143.HEIC" 
-                    alt="Keith Arputham" 
-                    className="w-full h-full object-cover"
-                  />
+                <div className="w-20 h-20 bg-gradient-to-br from-accent to-primary rounded-full mb-4 mx-auto flex items-center justify-center overflow-hidden">
+                  <span className="text-white text-2xl font-bold">KA</span>
                 </div>
                 <h3 className="font-semibold text-foreground mb-2">Keith Arputham</h3>
                 <p className="text-sm text-muted-foreground mb-2">Backend Developer</p>
@@ -228,6 +242,45 @@ export default function HomePage() {
             <p>Bots don't know Gen Z slang. <GradientText className="inline font-semibold" colors={["#4B0FFF", "#7A2CFF", "#2AB3FF"]}>That's the firewall.</GradientText></p>
             <p>Smarter than CAPTCHA, funnier than 2FA.</p>
             <p>Privacy-first. No biometric storage; on-device checks where possible.</p>
+          </div>
+        </div>
+
+        {/* Installation Code Section */}
+        <div className="w-full max-w-4xl mx-auto mb-16 px-4 md:px-8" data-testid="installation-code">
+          <div className="text-center mb-8">
+            <h2 className="display-font text-2xl md:text-3xl font-bold text-foreground mb-4">Get started in seconds</h2>
+            <p className="text-muted-foreground">Copy the code below to integrate CaptchaRizz into your project</p>
+          </div>
+          
+          <div className="flex justify-center">
+            <div className="w-full max-w-2xl">
+              <CodeBlock>
+                <CodeBlockGroup className="border-border border-b px-4 py-2">
+                  <div className="flex items-center gap-2">
+                    <div className="bg-primary/10 text-primary rounded px-2 py-1 text-xs font-medium">
+                      JavaScript
+                    </div>
+                    <span className="text-muted-foreground text-sm">
+                      Installation & Setup
+                    </span>
+                  </div>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="h-8 w-8"
+                    onClick={handleCopy}
+                    data-testid="button-copy-code"
+                  >
+                    {copied ? (
+                      <Check className="h-4 w-4 text-green-500" />
+                    ) : (
+                      <Copy className="h-4 w-4" />
+                    )}
+                  </Button>
+                </CodeBlockGroup>
+                <CodeBlockCode code={installCode} language="javascript" theme="github-dark" />
+              </CodeBlock>
+            </div>
           </div>
         </div>
 
