@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link, useLocation } from 'wouter'
-import { ArrowLeft, Mail, Lock, User } from 'lucide-react'
+import { ArrowLeft, Mail, Lock } from 'lucide-react'
 import { useMutation } from '@tanstack/react-query'
 import { useToast } from '@/hooks/use-toast'
 import { Button } from "@/components/ui/button"
@@ -10,9 +10,8 @@ import { GradientText } from "@/components/ui/gradient-text"
 import { Waves } from "@/components/ui/waves-background"
 
 export default function LoginPage() {
-  const [isSignup, setIsSignup] = useState(false)
+  const [showWaitlist, setShowWaitlist] = useState(false)
   const [email, setEmail] = useState('')
-  const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [, setLocation] = useLocation()
   const { toast } = useToast()
@@ -39,22 +38,22 @@ export default function LoginPage() {
     },
   })
 
-  const signupMutation = useMutation({
-    mutationFn: async (data: { username: string; email: string; password: string }) => {
-      const response = await fetch('/api/auth/signup', {
+  const waitlistMutation = useMutation({
+    mutationFn: async (email: string) => {
+      const response = await fetch('/api/waitlist', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ email }),
       })
       if (!response.ok) {
         const error = await response.json()
-        throw new Error(error.error || 'Signup failed')
+        throw new Error(error.error || 'Failed to join waitlist')
       }
       return response.json()
     },
     onSuccess: (data) => {
       toast({ title: 'Success!', description: data.message })
-      setLocation('/')
+      setEmail('')
     },
     onError: (error: Error) => {
       toast({ title: 'Error', description: error.message, variant: 'destructive' })
@@ -63,12 +62,12 @@ export default function LoginPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    if (isSignup) {
-      if (!username.trim()) {
-        toast({ title: 'Error', description: 'Username is required', variant: 'destructive' })
+    if (showWaitlist) {
+      if (!email.trim()) {
+        toast({ title: 'Error', description: 'Email is required', variant: 'destructive' })
         return
       }
-      signupMutation.mutate({ username, email, password })
+      waitlistMutation.mutate(email)
     } else {
       loginMutation.mutate({ email, password })
     }
@@ -110,32 +109,12 @@ export default function LoginPage() {
       {/* Login Card */}
       <Card className="relative z-10 glass-card w-full max-w-md" data-testid="login-card">
         <CardHeader className="text-center pb-4">
-          <h1 className="text-2xl font-bold text-foreground mb-2">{isSignup ? 'Create Account' : 'Welcome back'}</h1>
-          <p className="text-muted-foreground">{isSignup ? 'Join the human-first security revolution' : 'Sign in to your account to continue'}</p>
+          <h1 className="text-2xl font-bold text-foreground mb-2">{showWaitlist ? 'Join the Waitlist' : 'Welcome back'}</h1>
+          <p className="text-muted-foreground">{showWaitlist ? 'Be the first to experience CaptchaRizz when it launches' : 'Sign in to your account to continue'}</p>
         </CardHeader>
         
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-4">
-            {isSignup && (
-              <div className="space-y-2">
-                <label htmlFor="username" className="text-sm font-medium text-foreground">
-                  Username
-                </label>
-                <div className="relative">
-                  <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-                  <Input
-                    id="username"
-                    type="text"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                    className="pl-10 glass-card bg-white/5 border-white/10 text-foreground placeholder:text-muted-foreground focus:border-primary/50"
-                    placeholder="Choose a username"
-                    required={isSignup}
-                    data-testid="input-username"
-                  />
-                </div>
-              </div>
-            )}
             <div className="space-y-2">
               <label htmlFor="email" className="text-sm font-medium text-foreground">
                 Email
@@ -155,45 +134,47 @@ export default function LoginPage() {
               </div>
             </div>
 
-            <div className="space-y-2">
-              <label htmlFor="password" className="text-sm font-medium text-foreground">
-                Password
-              </label>
-              <div className="relative">
-                <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-                <Input
-                  id="password"
-                  type="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  className="pl-10 glass-card bg-white/5 border-white/10 text-foreground placeholder:text-muted-foreground focus:border-primary/50"
-                  placeholder="Enter your password"
-                  required
-                  data-testid="input-password"
-                />
+            {!showWaitlist && (
+              <div className="space-y-2">
+                <label htmlFor="password" className="text-sm font-medium text-foreground">
+                  Password
+                </label>
+                <div className="relative">
+                  <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                  <Input
+                    id="password"
+                    type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    className="pl-10 glass-card bg-white/5 border-white/10 text-foreground placeholder:text-muted-foreground focus:border-primary/50"
+                    placeholder="Enter your password"
+                    required={!showWaitlist}
+                    data-testid="input-password"
+                  />
+                </div>
               </div>
-            </div>
+            )}
 
             <Button 
               type="submit"
-              disabled={loginMutation.isPending || signupMutation.isPending}
+              disabled={loginMutation.isPending || waitlistMutation.isPending}
               className="w-full bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary text-white py-3 font-semibold transition-all duration-300 transform hover:scale-105 disabled:opacity-50"
-              data-testid={isSignup ? "button-sign-up" : "button-sign-in"}
+              data-testid={showWaitlist ? "button-join-waitlist" : "button-sign-in"}
             >
-              {(loginMutation.isPending || signupMutation.isPending) ? 'Please wait...' : (isSignup ? 'Create Account' : 'Sign In')}
+              {(loginMutation.isPending || waitlistMutation.isPending) ? 'Please wait...' : (showWaitlist ? 'Join Waitlist' : 'Sign In')}
             </Button>
           </form>
 
           <div className="mt-6 text-center">
             <p className="text-sm text-muted-foreground">
-              {isSignup ? 'Already have an account?' : "Don't have an account?"}{' '}
+              {showWaitlist ? 'Already have an account?' : "Want early access?"}{' '}
               <button 
                 type="button"
-                onClick={() => setIsSignup(!isSignup)}
+                onClick={() => setShowWaitlist(!showWaitlist)}
                 className="text-primary hover:text-accent transition-colors font-medium" 
-                data-testid={isSignup ? "link-sign-in" : "link-sign-up"}
+                data-testid={showWaitlist ? "link-sign-in" : "link-waitlist"}
               >
-                {isSignup ? 'Sign in' : 'Sign up'}
+                {showWaitlist ? 'Sign in' : 'Join the waitlist'}
               </button>
             </p>
           </div>

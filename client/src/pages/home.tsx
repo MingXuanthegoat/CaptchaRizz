@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Waves } from "@/components/ui/waves-background"
 import { CodeBlock, CodeBlockCode, CodeBlockGroup } from "@/components/ui/code-block"
+import { WaitlistDemo } from "@/components/ui/waitlist-demo"
 import { useState } from 'react'
 
 export default function HomePage() {
@@ -13,7 +14,7 @@ export default function HomePage() {
   
   const navItems = [
     { name: 'Home', url: '#hero', icon: Home },
-    { name: 'Team', url: '#team', icon: Users },
+    { name: 'Waitlist', url: '#waitlist', icon: Users },
     { name: 'Demo', url: '#demo', icon: Play },
     { name: 'Install', url: '#install', icon: Download }
   ]
@@ -174,6 +175,11 @@ captcha.verify().then(result => {
             </Card>
           </div>
         </div>
+
+        {/* Waitlist Section */}
+        <section id="waitlist" className="py-16">
+          <WaitlistDemo />
+        </section>
 
         {/* Team Section */}
         <div className="relative w-full max-w-6xl mx-auto mb-16 px-4 md:px-8" data-testid="team">

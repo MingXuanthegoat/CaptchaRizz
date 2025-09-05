@@ -1,4 +1,4 @@
-import { type User, type InsertUser } from "@shared/schema";
+import { type User, type InsertUser, type Waitlist, type InsertWaitlist } from "@shared/schema";
 import { randomUUID } from "crypto";
 
 // modify the interface with any CRUD methods
@@ -9,13 +9,17 @@ export interface IStorage {
   getUserByUsername(username: string): Promise<User | undefined>;
   getUserByEmail(email: string): Promise<User | undefined>;
   createUser(user: InsertUser): Promise<User>;
+  addToWaitlist(email: InsertWaitlist): Promise<Waitlist>;
+  getWaitlistEntry(email: string): Promise<Waitlist | undefined>;
 }
 
 export class MemStorage implements IStorage {
   private users: Map<string, User>;
+  private waitlist: Map<string, Waitlist>;
 
   constructor() {
     this.users = new Map();
+    this.waitlist = new Map();
   }
 
   async getUser(id: string): Promise<User | undefined> {
@@ -39,6 +43,21 @@ export class MemStorage implements IStorage {
     const user: User = { ...insertUser, id };
     this.users.set(id, user);
     return user;
+  }
+
+  async addToWaitlist(insertWaitlist: InsertWaitlist): Promise<Waitlist> {
+    const id = randomUUID();
+    const entry: Waitlist = {
+      id,
+      email: insertWaitlist.email,
+      createdAt: new Date(),
+    };
+    this.waitlist.set(insertWaitlist.email, entry);
+    return entry;
+  }
+
+  async getWaitlistEntry(email: string): Promise<Waitlist | undefined> {
+    return this.waitlist.get(email);
   }
 }
 

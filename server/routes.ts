@@ -2,7 +2,7 @@ import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import bcrypt from "bcryptjs";
-import { insertUserSchema } from "@shared/schema";
+import { insertUserSchema, insertWaitlistSchema } from "@shared/schema";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Authentication routes
@@ -70,6 +70,29 @@ export async function registerRoutes(app: Express): Promise<Server> {
     } catch (error) {
       console.error("Login error:", error);
       res.status(500).json({ error: "Internal server error" });
+    }
+  });
+
+  // Waitlist route
+  app.post("/api/waitlist", async (req, res) => {
+    try {
+      const { email } = insertWaitlistSchema.parse(req.body);
+      
+      // Check if email already exists in waitlist
+      const existingEntry = await storage.getWaitlistEntry(email);
+      if (existingEntry) {
+        return res.status(400).json({ error: "Email already registered for waitlist" });
+      }
+
+      // Add to waitlist
+      const waitlistEntry = await storage.addToWaitlist({ email });
+      res.status(201).json({ 
+        message: "Successfully joined the waitlist! We'll notify you when CaptchaRizz launches.",
+        entry: { id: waitlistEntry.id, email: waitlistEntry.email }
+      });
+    } catch (error) {
+      console.error("Waitlist error:", error);
+      res.status(400).json({ error: "Invalid email address" });
     }
   });
 
