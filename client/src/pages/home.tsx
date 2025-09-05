@@ -66,13 +66,22 @@ captcha.verify().then(result => {
             onClick={() => {
               document.getElementById('hero')?.scrollIntoView({ behavior: 'smooth' })
             }}
-            className="flex items-center gap-3 cursor-pointer bg-white/10 backdrop-blur-sm rounded-xl p-2 hover:bg-white/20 transition-all duration-200"
+            className="flex items-center gap-3 cursor-pointer bg-white/20 backdrop-blur-md rounded-xl p-3 hover:bg-white/30 transition-all duration-200 border border-white/10 shadow-lg"
+            data-testid="logo-home-button"
           >
             <img 
               src="/attached_assets/CAPTCHARIZZ_1757079876773.png" 
               alt="CaptchaRizz" 
-              className="w-10 h-10 hover:scale-105 transition-transform duration-200"
+              className="w-8 h-8 hover:scale-110 transition-transform duration-200"
+              onError={(e) => {
+                console.error('Logo image failed to load:', e)
+                e.currentTarget.style.display = 'none'
+              }}
+              onLoad={() => {
+                console.log('Logo image loaded successfully')
+              }}
             />
+            <span className="text-white text-sm font-medium">CaptchaRizz</span>
           </button>
         </div>
         <NavBar items={navItems} />
