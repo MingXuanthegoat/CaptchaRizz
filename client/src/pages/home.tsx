@@ -7,7 +7,7 @@ import { Waves } from "@/components/ui/waves-background"
 
 export default function HomePage() {
   const navItems = [
-    { name: 'Home', url: '#', icon: Home },
+    { name: 'Home', url: '#hero', icon: Home },
     { name: 'Team', url: '#team', icon: Users },
     { name: 'Demo', url: '#demo', icon: Play },
     { name: 'Install', url: '#install', icon: Download }
@@ -16,7 +16,7 @@ export default function HomePage() {
   return (
     <div className="min-h-screen overflow-x-hidden">
       {/* Hero Section with Gradient Background */}
-      <div className="min-h-screen bg-gradient-to-br from-ink via-[#1a1a3a] to-ink relative">
+      <div id="hero" className="min-h-screen bg-gradient-to-br from-ink via-[#1a1a3a] to-ink relative">
         {/* Neural Network Background for Hero only */}
         <div className="absolute inset-0 -z-10 opacity-30">
           {/* Simplified neural network background */}
@@ -55,13 +55,15 @@ export default function HomePage() {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 mb-16" data-testid="hero-cta">
-            <Button 
-              size="lg" 
-              className="group relative overflow-hidden bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
-              data-testid="button-try-demo"
-            >
-              <span className="relative z-10 tracking-wide">Try the demo</span>
-            </Button>
+            <a href="/login">
+              <Button 
+                size="lg" 
+                className="group relative overflow-hidden bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
+                data-testid="button-try-demo"
+              >
+                <span className="relative z-10 tracking-wide">Try the demo</span>
+              </Button>
+            </a>
             
             <Button 
               variant="outline" 
@@ -78,7 +80,7 @@ export default function HomePage() {
       {/* Content Sections with Black Background */}
       <div className="bg-black">
         {/* How It Works Section */}
-        <div className="relative w-full max-w-6xl mx-auto py-16 px-4 md:px-8" data-testid="how-it-works">
+        <div id="demo" className="relative w-full max-w-6xl mx-auto py-16 px-4 md:px-8" data-testid="how-it-works">
           <Waves 
             lineColor="rgba(75, 15, 255, 0.15)"
             backgroundColor="black"
@@ -157,8 +159,12 @@ export default function HomePage() {
           <div className="relative z-10 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <Card className="glass-card group hover:bg-white/5 transition-all duration-300 transform hover:scale-105" data-testid="team-euan">
               <CardContent className="p-6 text-center">
-                <div className="w-20 h-20 bg-gradient-to-br from-primary to-accent rounded-full mb-4 mx-auto flex items-center justify-center">
-                  <span className="text-white text-2xl font-bold">EF</span>
+                <div className="w-20 h-20 bg-gradient-to-br from-primary to-accent rounded-full mb-4 mx-auto overflow-hidden">
+                  <img 
+                    src="/attached_assets/Euan Fraser_1757074009622.jpeg" 
+                    alt="Euan Fraser" 
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <h3 className="font-semibold text-foreground mb-2">Euan Fraser</h3>
                 <p className="text-sm text-muted-foreground mb-2">Frontend & Integration</p>
@@ -168,8 +174,12 @@ export default function HomePage() {
 
             <Card className="glass-card group hover:bg-white/5 transition-all duration-300 transform hover:scale-105" data-testid="team-ming">
               <CardContent className="p-6 text-center">
-                <div className="w-20 h-20 bg-gradient-to-br from-accent to-primary rounded-full mb-4 mx-auto flex items-center justify-center">
-                  <span className="text-white text-2xl font-bold">MC</span>
+                <div className="w-20 h-20 bg-gradient-to-br from-accent to-primary rounded-full mb-4 mx-auto overflow-hidden">
+                  <img 
+                    src="/attached_assets/Ming Xuan Chong_1757074074202.jpeg" 
+                    alt="Ming Xuan Chong" 
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <h3 className="font-semibold text-foreground mb-2">Ming Xuan Chong</h3>
                 <p className="text-sm text-muted-foreground mb-2">Backend & Database</p>
@@ -179,8 +189,12 @@ export default function HomePage() {
 
             <Card className="glass-card group hover:bg-white/5 transition-all duration-300 transform hover:scale-105" data-testid="team-mo">
               <CardContent className="p-6 text-center">
-                <div className="w-20 h-20 bg-gradient-to-br from-primary via-accent to-primary rounded-full mb-4 mx-auto flex items-center justify-center">
-                  <span className="text-white text-2xl font-bold">MA</span>
+                <div className="w-20 h-20 bg-gradient-to-br from-primary via-accent to-primary rounded-full mb-4 mx-auto overflow-hidden">
+                  <img 
+                    src="/attached_assets/IMG_0897_1757074182490.jpeg" 
+                    alt="Mo Alizadeh" 
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <h3 className="font-semibold text-foreground mb-2">Mo Alizadeh</h3>
                 <p className="text-sm text-muted-foreground mb-2">Marketing & UI</p>
@@ -190,8 +204,12 @@ export default function HomePage() {
 
             <Card className="glass-card group hover:bg-white/5 transition-all duration-300 transform hover:scale-105" data-testid="team-keith">
               <CardContent className="p-6 text-center">
-                <div className="w-20 h-20 bg-gradient-to-br from-accent to-primary rounded-full mb-4 mx-auto flex items-center justify-center">
-                  <span className="text-white text-2xl font-bold">KA</span>
+                <div className="w-20 h-20 bg-gradient-to-br from-accent to-primary rounded-full mb-4 mx-auto overflow-hidden">
+                  <img 
+                    src="/attached_assets/IMG_3284_1757074285143.HEIC" 
+                    alt="Keith Arputham" 
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <h3 className="font-semibold text-foreground mb-2">Keith Arputham</h3>
                 <p className="text-sm text-muted-foreground mb-2">Backend Developer</p>
@@ -237,19 +255,21 @@ export default function HomePage() {
         </div>
 
         {/* Final CTA */}
-        <div className="w-full max-w-4xl mx-auto text-center px-4 md:px-8 pb-16" data-testid="final-cta">
+        <div id="install" className="w-full max-w-4xl mx-auto text-center px-4 md:px-8 pb-16" data-testid="final-cta">
           <h2 className="display-font text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
             Ready to <GradientText className="inline" colors={["#4B0FFF", "#7A2CFF", "#2AB3FF"]}>rizz up</GradientText> your login page?
           </h2>
           <p className="text-lg text-muted-foreground mb-8">Join the next-gen, human-first security layer.</p>
           
-          <Button 
-            size="lg"
-            className="group relative overflow-hidden bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary text-white px-12 py-4 rounded-xl font-semibold text-xl transition-all duration-300 transform hover:scale-105 shadow-2xl"
-            data-testid="button-get-started"
-          >
-            <span className="relative z-10 tracking-wide">Get Started</span>
-          </Button>
+          <a href="/login">
+            <Button 
+              size="lg"
+              className="group relative overflow-hidden bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary text-white px-12 py-4 rounded-xl font-semibold text-xl transition-all duration-300 transform hover:scale-105 shadow-2xl"
+              data-testid="button-get-started"
+            >
+              <span className="relative z-10 tracking-wide">Get Started</span>
+            </Button>
+          </a>
         </div>
       </div>
 
