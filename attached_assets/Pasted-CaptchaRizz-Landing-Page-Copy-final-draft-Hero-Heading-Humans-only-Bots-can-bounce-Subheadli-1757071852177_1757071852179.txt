@@ -1,0 +1,93 @@
+CaptchaRizz — Landing Page Copy (final draft)
+Hero
+
+Heading: Humans only. Bots can bounce.
+Subheadline: CaptchaRizz is an AI-powered vibe check that replaces clunky CAPTCHAs with culture-savvy prompts—fast, fun, and hard to spoof.
+Primary CTA: Try the demo
+Secondary CTA: Install on your site
+Micro badge (optional): NEW • Generative Gates
+
+How it works
+
+Enter the gate – You hit a page and need to prove you’re real.
+
+Pass the vibe check – Answer a quick human-only prompt (slang, meme logic, or tiny expression task).
+
+You’re in – Welcome, human. Bots get blocked.
+
+Features
+
+AI-Powered Filters – Knows what bots can’t fake.
+
+Custom Vibe Checks – Choose memes, slang, emoji math, or micro-gestures.
+
+Zero-Friction UX – One tap, sub-2s median time, accessibility-safe mode.
+
+Plugs in Anywhere – Drop-in widget for websites, apps, and games (REST + JS SDK).
+
+Why CaptchaRizz?
+
+Because traffic-light CAPTCHAs are so 2005.
+
+Bots don’t know Gen Z slang. That’s the firewall.
+
+Smarter than CAPTCHA, funnier than 2FA.
+
+Privacy-first. No biometric storage; on-device checks where possible.
+
+Social proof / Meme wall
+
+“First time I wanted to take a CAPTCHA.” — @realuserlol
+“Failed the first rizz check… humbling.” — @techbro
+
+🖼️ Meme tile: “What bots see” → glitched traffic lights collage vs. clean CaptchaRizz chip.
+
+Final CTA
+
+Headline: Ready to rizz up your login page?
+Subtext: Join the next-gen, human-first security layer.
+Button: Get Started
+
+Footer
+
+© 2025 CaptchaRizz · Twitter · GitHub · Contact · Privacy · Terms
+
+Design Tokens (drop into your builder)
+
+Palette (deep blue → purple gradient):
+
+Ink: #0B0B2E
+
+Electric Indigo: #4B0FFF
+
+Vivid Violet: #7A2CFF
+
+Plasma Blue: #2AB3FF (accent)
+
+Soft Lilac: #C8B7FF (muted text)
+
+Snow: #F7F8FF (on dark)
+
+Primary gradient options:
+
+G1 (Hero): linear-gradient(135deg, #0B0B2E 0%, #4B0FFF 45%, #7A2CFF 70%, #2AB3FF 100%)
+
+G2 (Hover glow): radial-gradient(800px 400px at 80% 20%, #7A2CFF 0%, transparent 60%)
+
+Typography:
+
+Display: Sora or Space Grotesk (tight tracking)
+
+Body/UI: Inter
+
+Button weight: semi-bold; letter-spacing: +0.2px
+
+UI style:
+
+Cards: glassy/low-contrast on dark, 12–16px radius, subtle inner glow on hover.
+
+Icons: 2px linear strokes, rounded caps (Lucide-style).
+
+Motion: <200ms ease; hero “neural wave” ambient gradient at 6–10% opacity.
+
+Logo note: “CaptchaRizz” with capital R. No shield. Prefer neural nodes / circuit wave.
